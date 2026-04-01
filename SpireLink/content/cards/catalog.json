@@ -1,0 +1,76 @@
+[
+  {
+    "id": "LINKED_GUARD",
+    "cost": 1,
+    "rarity": "Common",
+    "type": "Skill",
+    "tags": [
+      "LINK"
+    ]
+  },
+  {
+    "id": "TARGET_MARK",
+    "cost": 1,
+    "rarity": "Common",
+    "type": "Skill",
+    "tags": [
+      "LINK"
+    ]
+  },
+  {
+    "id": "RESONANCE_PREP",
+    "cost": 0,
+    "rarity": "Common",
+    "type": "Skill",
+    "tags": [
+      "LINK"
+    ]
+  },
+  {
+    "id": "ECHO_CIRCUIT",
+    "cost": 1,
+    "rarity": "Uncommon",
+    "type": "Skill",
+    "tags": [
+      "RESONATE"
+    ]
+  },
+  {
+    "id": "RESONANT_STRIKE",
+    "cost": 2,
+    "rarity": "Uncommon",
+    "type": "Attack",
+    "tags": [
+      "RESONATE"
+    ]
+  },
+  {
+    "id": "CHAIN_REPAIR",
+    "cost": 1,
+    "rarity": "Uncommon",
+    "type": "Skill",
+    "tags": [
+      "LINK",
+      "GUARD_LINK"
+    ]
+  },
+  {
+    "id": "OVERLOAD_REDIRECT",
+    "cost": 1,
+    "rarity": "Rare",
+    "type": "Skill",
+    "tags": [
+      "LINK",
+      "RESONATE"
+    ]
+  },
+  {
+    "id": "FINALE_OF_ACCORD",
+    "cost": 3,
+    "rarity": "Rare",
+    "type": "Attack",
+    "tags": [
+      "RESONATE"
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "RESONANCE_CONDUCTOR": {
+    "name": "共振导体",
+    "description": "每回合第一次用卡牌帮助队友时，获得1点共鸣。"
+  },
+  "ECHO_PRISM": {
+    "name": "回声棱镜",
+    "description": "你的 Link 效果触发时，为目标队友额外提供一项随机收益。"
+  },
+  "COMMAND_CORE": {
+    "name": "指挥核心",
+    "description": "每回合第一次有人消耗共鸣时，给予其格挡，并让另一名队友抽牌。"
+  }
+}

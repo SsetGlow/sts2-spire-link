@@ -26,6 +26,10 @@
 - 导出配置：`export_presets.cfg`
 - 构建打包脚本：`tools/build_release.sh`
 - 创意工坊发布说明：`docs/workshop-publishing.md`
+- Workshop 页面文案草稿：`docs/workshop-copywriting.md`
+- 发布检查清单：`docs/release-checklist.md`
+- 中英双语本地化目录：`SpireLink/localization/eng`、`SpireLink/localization/zh_cn`
+- 卡牌 / 遗物 / 事件目录清单：`SpireLink/content/**/catalog.json`
 - Spire Link 的卡牌 / 遗物 / 事件 / 本地化 / 机制代码骨架
 - 旧 Java 机制原型已归档到：`docs/legacy-java-prototype/`
 

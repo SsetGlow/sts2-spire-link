@@ -1,0 +1,14 @@
+{
+  "LINK": {
+    "name": "Link",
+    "description": "为队友排入一个延迟触发的支援效果。"
+  },
+  "RESONATE": {
+    "name": "Resonate",
+    "description": "当共鸣充足或主动消耗共鸣时，此牌会变强。"
+  },
+  "RESONANCE": {
+    "name": "共鸣",
+    "description": "Spire Link 机制中的团队共享资源。"
+  }
+}
