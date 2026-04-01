@@ -1,0 +1,2 @@
+rootProject.name = 'sts2-spire-link'
+include 'core-common', 'core-domain', 'core-engine', 'content-cards', 'content-relics', 'content-events', 'ui-overlay'

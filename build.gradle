@@ -1,0 +1,74 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    group = 'com.ssetglow'
+    version = '0.1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    tasks.withType(Test).configureEach {
+        useJUnitPlatform()
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    }
+}
+
+project(':core-domain') {
+    dependencies {
+        implementation project(':core-common')
+    }
+}
+
+project(':core-engine') {
+    dependencies {
+        implementation project(':core-common')
+        implementation project(':core-domain')
+    }
+}
+
+project(':content-cards') {
+    dependencies {
+        implementation project(':core-common')
+        implementation project(':core-domain')
+        implementation project(':core-engine')
+    }
+}
+
+project(':content-relics') {
+    dependencies {
+        implementation project(':core-common')
+        implementation project(':core-domain')
+        implementation project(':core-engine')
+    }
+}
+
+project(':content-events') {
+    dependencies {
+        implementation project(':core-common')
+        implementation project(':core-domain')
+        implementation project(':core-engine')
+    }
+}
+
+project(':ui-overlay') {
+    dependencies {
+        implementation project(':core-common')
+        implementation project(':core-domain')
+    }
+}
