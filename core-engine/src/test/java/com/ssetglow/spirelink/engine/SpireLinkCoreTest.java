@@ -3,9 +3,12 @@ package com.ssetglow.spirelink.engine;
 import com.ssetglow.spirelink.common.LinkEffectType;
 import com.ssetglow.spirelink.common.TargetRule;
 import com.ssetglow.spirelink.content.cards.CardRegistry;
+import com.ssetglow.spirelink.content.cards.SpireLinkCardLibrary;
 import com.ssetglow.spirelink.content.events.EventRegistry;
 import com.ssetglow.spirelink.content.relics.RelicRegistry;
+import com.ssetglow.spirelink.content.relics.RelicRuntimeFactory;
 import com.ssetglow.spirelink.domain.BattleCoordinationContext;
+import com.ssetglow.spirelink.domain.CardPlayResult;
 import com.ssetglow.spirelink.domain.ResonanceSpendRequest;
 import org.junit.jupiter.api.Test;
 
@@ -45,6 +48,7 @@ class SpireLinkCoreTest {
         assertEquals(8, CardRegistry.bootstrap().size());
         assertEquals(3, RelicRegistry.bootstrap().size());
         assertEquals(1, EventRegistry.bootstrap().size());
+        assertEquals(8, SpireLinkCardLibrary.createDefault().size());
     }
 
     @Test
@@ -55,5 +59,28 @@ class SpireLinkCoreTest {
         assertEquals(3, context.resonanceState().current());
         assertEquals("resonance_conductor", context.tempFlags().get("altar.rewardRelic"));
         assertFalse(context.tempFlags().containsKey("altar.doubleFirstLinkNextBattle"));
+    }
+
+    @Test
+    void shouldSimulateCardPlayPipeline() {
+        BattleCoordinationContext context = new BattleCoordinationContext(List.of("p1", "p2"), List.of("e1", "e2"));
+        CombatSimulation simulation = new CombatSimulation(
+                context,
+                new GameActionExecutor(new ResonanceManager(), new TeamTargetResolver(new Random(1)), new LinkResolver()),
+                RelicRuntimeFactory.createDefault(),
+                SpireLinkCardLibrary.createDefault()
+        );
+
+        CardPlayResult first = simulation.playCard("linked_guard", "p1", null, false);
+        assertEquals(1, first.resonanceGained());
+        assertEquals(7, context.requirePlayer("p1").block());
+        assertEquals(1, context.pendingLinks().size());
+
+        new CombatTriggerDispatcher(new LinkResolver()).onTurnStart(context, "p2");
+        assertTrue(context.requirePlayer("p2").block() >= 5);
+
+        CardPlayResult second = simulation.playCard("resonant_strike", "p2", null, false);
+        assertTrue(second.totalDamage() >= 14);
+        assertFalse(simulation.recentLogs().isEmpty());
     }
 }

@@ -10,6 +10,9 @@
 - 共鸣值领域模型与历史记录
 - Link / Resonate 的抽象规则引擎
 - 首批卡牌 / 遗物 / 事件定义注册
+- 8 张卡的原型行为实现
+- 3 个遗物的运行时监听实现
+- 战斗模拟编排服务与战斗日志
 - UI Overlay 数据模型
 - 基础单元测试
 
@@ -19,9 +22,9 @@
 
 - `core-common`：常量、枚举、公共模型
 - `core-domain`：领域对象与战斗上下文
-- `core-engine`：规则引擎与触发分发
-- `content-cards`：卡牌定义与注册表
-- `content-relics`：遗物定义与注册表
+- `core-engine`：规则引擎、运行时接口、战斗编排
+- `content-cards`：卡牌定义、注册表、卡牌行为原型
+- `content-relics`：遗物定义、注册表、遗物监听原型
 - `content-events`：事件定义与注册表
 - `ui-overlay`：UI 展示状态模型
 

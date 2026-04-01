@@ -20,7 +20,7 @@ public class EventChoiceProcessor {
                 context.tempFlags().put("altar.doubleFirstLinkNextBattle", true);
                 context.tempFlags().put("altar.injectBurdenCard", true);
             }
-            case "C" -> context.players().values().forEach(player -> context.requirePlayer(player.playerId()).gainBlock(0));
+            case "C" -> context.players().values().forEach(player -> context.requirePlayer(player.playerId()).heal(5));
             default -> throw new IllegalArgumentException("Unknown event choice: " + choiceCode);
         }
     }

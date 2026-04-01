@@ -25,6 +25,7 @@ public class PlayerState {
     public int cleansedDebuffs() { return cleansedDebuffs; }
 
     public void loseHp(int value) { hp -= Math.max(0, value); }
+    public void heal(int value) { hp += Math.max(0, value); }
     public void gainBlock(int value) { block += Math.max(0, value); }
     public void gainEnergy(int value) { energy += Math.max(0, value); }
     public void queueDraw(int value) { drawQueued += Math.max(0, value); }
