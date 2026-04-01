@@ -1,0 +1,14 @@
+{
+  "RESONANCE_CONDUCTOR": {
+    "name": "Resonance Conductor",
+    "description": "First support card each turn grants 1 Resonance."
+  },
+  "ECHO_PRISM": {
+    "name": "Echo Prism",
+    "description": "Link effects grant extra random utility to the target teammate."
+  },
+  "COMMAND_CORE": {
+    "name": "Command Core",
+    "description": "First Resonance spender each turn gains Block and another teammate draws."
+  }
+}

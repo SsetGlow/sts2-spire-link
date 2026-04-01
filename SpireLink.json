@@ -1,0 +1,14 @@
+{
+  "id": "SpireLink",
+  "pck_name": "SpireLink",
+  "name": "Spire Link",
+  "version": "0.1.0",
+  "author": "SsetGlow",
+  "description": "A Slay the Spire 2 cooperative content mod built around Resonance, Link, and Resonate.",
+  "dependencies": [
+    "BaseLib"
+  ],
+  "has_pck": true,
+  "has_dll": true,
+  "affects_gameplay": true
+}

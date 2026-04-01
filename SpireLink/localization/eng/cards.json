@@ -1,0 +1,34 @@
+{
+  "LINKED_GUARD": {
+    "name": "Linked Guard",
+    "description": "Gain Block. Queue Block for the next teammate. Gain 1 Resonance."
+  },
+  "TARGET_MARK": {
+    "name": "Target Mark",
+    "description": "Apply Vulnerable to all enemies. Empower the next teammate's first Attack. Gain 1 Resonance."
+  },
+  "RESONANCE_PREP": {
+    "name": "Resonance Prep",
+    "description": "Draw. Reduce next teammate's first card cost. Gain Resonance if applied."
+  },
+  "ECHO_CIRCUIT": {
+    "name": "Echo Circuit",
+    "description": "Gain Block. If Resonance is high enough, draw extra cards."
+  },
+  "RESONANT_STRIKE": {
+    "name": "Resonant Strike",
+    "description": "Deal damage. Spend up to 3 Resonance for bonus damage."
+  },
+  "CHAIN_REPAIR": {
+    "name": "Chain Repair",
+    "description": "Help a teammate by cleansing or granting Block. Gain 2 Resonance."
+  },
+  "OVERLOAD_REDIRECT": {
+    "name": "Overload Redirect",
+    "description": "Lose HP, gain Resonance, and feed the next teammate card draw."
+  },
+  "FINALE_OF_ACCORD": {
+    "name": "Finale of Accord",
+    "description": "AOE finisher. If enough Link triggers happened, spend Resonance for an encore."
+  }
+}

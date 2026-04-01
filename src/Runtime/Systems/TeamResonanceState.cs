@@ -1,0 +1,2 @@
+namespace SpireLink.Runtime.Systems;
+public sealed class TeamResonanceState { public const int DefaultMax = 10; public int Current { get; private set; } public int Max { get; } = DefaultMax; public int Gain(int amount) { var before = Current; Current = int.Min(Max, Current + int.Max(0, amount)); return Current - before; } public int Spend(int amount) { var actual = int.Min(Current, int.Max(0, amount)); Current -= actual; return actual; } public bool Reach(int threshold) => Current >= threshold; }

@@ -1,48 +1,51 @@
 # Spire Link（尖塔共鸣）
 
-一个面向《Slay the Spire 2》联机合作模式的协同机制 Mod 原型工程。
+这是一个面向 **Slay the Spire 2** 的联机协同机制 Mod，围绕以下核心机制设计：
 
-## 当前实现范围
+- **Resonance（共鸣值）**：团队共享资源池
+- **Link**：把当前玩家的出牌收益延迟传递给下一位队友
+- **Resonate**：基于共鸣阈值或主动消耗触发强化收益
 
-本仓库当前提供：
+## 已确认的真实技术路线
 
-- 多模块 Java 工程骨架
-- 共鸣值领域模型与历史记录
-- Link / Resonate 的抽象规则引擎
-- 首批卡牌 / 遗物 / 事件定义注册
-- 8 张卡的原型行为实现
-- 3 个遗物的运行时监听实现
-- 战斗模拟编排服务与战斗日志
-- UI Overlay 数据模型
-- 基础单元测试
+根据社区现有公开项目与模板，本项目当前采用：
 
-> 注意：当前阶段按“领域模型 + 规则引擎 + 事件总线”抽象实现，尚未绑定具体 StS2 Mod API。
+- **C# / .NET 9**
+- **Godot.NET.Sdk 4.5.1**
+- **BaseLib-StS2** 作为内容扩展基座
+- **Harmony** 作为运行时补丁机制
+- Mod 安装目录：
+  - Windows / Linux：`<Slay the Spire 2>/mods/SpireLink/`
+  - macOS：`<Slay the Spire 2>/SlayTheSpire2.app/Contents/MacOS/mods/SpireLink/`
 
-## 模块说明
+## 当前工程包含
 
-- `core-common`：常量、枚举、公共模型
-- `core-domain`：领域对象与战斗上下文
-- `core-engine`：规则引擎、运行时接口、战斗编排
-- `content-cards`：卡牌定义、注册表、卡牌行为原型
-- `content-relics`：遗物定义、注册表、遗物监听原型
-- `content-events`：事件定义与注册表
-- `ui-overlay`：UI 展示状态模型
+- StS2 社区模板兼容的 `SpireLink.csproj`
+- Mod manifest：`SpireLink.json`
+- Godot 项目：`project.godot`
+- 导出配置：`export_presets.cfg`
+- 构建打包脚本：`tools/build_release.sh`
+- 创意工坊发布说明：`docs/workshop-publishing.md`
+- Spire Link 的卡牌 / 遗物 / 事件 / 本地化 / 机制代码骨架
+- 旧 Java 机制原型已归档到：`docs/legacy-java-prototype/`
 
-## 后续接入建议
+## 构建前提
 
-1. 增加 `adapter-sts2` 模块，对接实际 Mod Hook/API
-2. 将卡牌/遗物/事件定义映射到游戏对象
-3. 把 `CombatTriggerDispatcher` 接到真实战斗生命周期
-4. 用 `BattleCoordinationContext` 作为联机战斗共享态根对象
+需要本机安装：
 
-## 本地构建
+1. **Slay the Spire 2**
+2. **Godot / MegaDot 4.5.1 Mono**
+3. **.NET SDK 9**
 
-```bash
-./gradlew test
-```
-
-如果本机没有 Gradle Wrapper，可先安装 Gradle 8.7+ 后执行：
+## 打包命令
 
 ```bash
-gradle test
+./tools/build_release.sh
 ```
+
+## 参考依据
+
+- `Alchyr/BaseLib-StS2`
+- `Alchyr/ModTemplate-StS2`
+- `jdr1813/BetterSpire2`
+- `Rain156/sts2-RMP-Mods`

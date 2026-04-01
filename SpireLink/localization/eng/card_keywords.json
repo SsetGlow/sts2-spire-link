@@ -1,0 +1,14 @@
+{
+  "LINK": {
+    "name": "Link",
+    "description": "Queue a support effect for a teammate."
+  },
+  "RESONATE": {
+    "name": "Resonate",
+    "description": "Strengthens when Resonance is high or spent."
+  },
+  "RESONANCE": {
+    "name": "Resonance",
+    "description": "A shared team resource for Spire Link."
+  }
+}

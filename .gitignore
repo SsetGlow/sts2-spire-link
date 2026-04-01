@@ -1,6 +1,11 @@
-.gradle/
+.godot/
+.build/
 build/
-out/
-.idea/
-*.iml
+.nuget/
+packages/
+.vs/
+bin/
+obj/
 .DS_Store
+*.user
+*.suo
