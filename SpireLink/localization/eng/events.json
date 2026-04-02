@@ -1,0 +1,11 @@
+{
+  "ALTAR_OF_SYNC": {
+    "name": "Altar of Sync",
+    "description": "A humming altar offers power to those willing to share rhythm.",
+    "options": {
+      "BUILD_RESONANCE": "Gain 3 Resonance, but enemies gain Strength in upcoming battles.",
+      "FORCE_SYNC": "Double the next Link trigger, but shuffle burden into each deck.",
+      "REJECT": "Refuse the pact and recover some health."
+    }
+  }
+}
