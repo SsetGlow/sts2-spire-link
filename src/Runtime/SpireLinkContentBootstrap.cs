@@ -1,4 +1,5 @@
 using SpireLink.Runtime.Content;
+using SpireLink.Runtime.Systems.Lifecycle;
 
 namespace SpireLink.Runtime;
 
@@ -12,5 +13,6 @@ public static class SpireLinkContentBootstrap
         ResonanceCardRegistry.Register();
         ResonanceRelicRegistry.Register();
         ResonanceEventRegistry.Register();
+        SpireLinkLifecycleCoordinator.Initialize();
     }
 }
