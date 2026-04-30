@@ -8,5 +8,6 @@ public sealed record RegistrationSnapshot(
     int RelicCount,
     int EventCount,
     IReadOnlyList<string> PreviewLines,
-    BaseLibRegistrationSnapshot BaseLibSnapshot
+    BaseLibRegistrationSnapshot BaseLibSnapshot,
+    ApiBindingProbeResult BindingProbe
 );

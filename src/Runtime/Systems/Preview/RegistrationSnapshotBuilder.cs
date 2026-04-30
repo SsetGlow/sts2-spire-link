@@ -9,14 +9,16 @@ public static class RegistrationSnapshotBuilder
     public static RegistrationSnapshot Build()
     {
         SpireLinkRuntimeRegistry.Rebuild();
-        IReadOnlyList<string> lines = RegistrationPreviewReporter.BuildPreviewLines();
+        IReadOnlyList<string> lines = Content.Registration.RegistrationPreviewReporter.BuildPreviewLines();
         var baseLibSnapshot = BaseLibRegistrationFacade.BuildSnapshot();
+        var bindingProbe = BaseLibRegistrationFacade.ProbeBindings();
         return new RegistrationSnapshot(
             SpireLinkRuntimeRegistry.Cards.Count,
             SpireLinkRuntimeRegistry.Relics.Count,
             SpireLinkRuntimeRegistry.Events.Count,
             lines,
-            baseLibSnapshot
+            baseLibSnapshot,
+            bindingProbe
         );
     }
 }

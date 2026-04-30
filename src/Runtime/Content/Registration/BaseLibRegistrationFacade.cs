@@ -6,7 +6,7 @@ namespace SpireLink.Runtime.Content.Registration;
 
 /// <summary>
 /// Central place for wiring Spire Link content into the eventual BaseLib/StS2 registration flow.
-/// Current stage: concrete registration inventory + sequencing shell + dry-run executor.
+/// Current stage: concrete registration inventory + sequencing shell + dry-run executor + binding plan.
 /// </summary>
 public static class BaseLibRegistrationFacade
 {
@@ -35,6 +35,8 @@ public static class BaseLibRegistrationFacade
     };
 
     public static RegistrationPlan BuildPlan() => RegistrationPlanBuilder.Build();
+    public static ApiBindingPlan BuildBindingPlan() => ApiBindingPlanBuilder.Build();
+    public static ApiBindingProbeResult ProbeBindings() => ApiBindingProbe.ProbeCurrentEnvironment();
 
     public static BaseLibRegistrationSnapshot BuildSnapshot()
     {
