@@ -4,7 +4,7 @@ using SpireLink.Runtime.Extensions;
 
 namespace SpireLink.Runtime.Content;
 
-public abstract class SpireLinkCard(int cost, CardType type, CardRarity rarity, TargetType target) : CustomCardModel(cost, type, rarity, target)
+public abstract class SpireLinkCard(int cost, CardType type, CardRarity rarity, TargetType target) : CustomCardModel(cost, type, rarity, target, true, false)
 {
     public abstract string LocalizationKey { get; }
     public virtual string[] Keywords => [];

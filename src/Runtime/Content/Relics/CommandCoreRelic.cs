@@ -1,5 +1,9 @@
+using BaseLib.Utils;
+using SpireLink.Runtime.Content.Pools;
+
 namespace SpireLink.Runtime.Content.Relics;
 
+[Pool(typeof(SpireLinkSharedRelicPool))]
 public sealed class CommandCoreRelic : SpireLinkRelic, ISpireLinkBehaviorProvider
 {
     public string BehaviorId => "COMMAND_CORE";

@@ -1,8 +1,11 @@
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using SpireLink.Runtime.Content.Pools;
 using SpireLink.Runtime.Systems;
 
 namespace SpireLink.Runtime.Content.Cards;
 
+[Pool(typeof(SpireLinkSharedCardPool))]
 public sealed class LinkedGuardCard() : SpireLinkCard(1, CardType.Skill, CardRarity.Common, TargetType.Self), ISpireLinkBehaviorProvider
 {
     public string BehaviorId => "LINKED_GUARD";

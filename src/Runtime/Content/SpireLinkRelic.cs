@@ -4,7 +4,7 @@ using SpireLink.Runtime.Extensions;
 
 namespace SpireLink.Runtime.Content;
 
-public abstract class SpireLinkRelic : CustomRelicModel
+public abstract class SpireLinkRelic : CustomRelicModel(false)
 {
     public abstract string LocalizationKey { get; }
     public virtual string DesignRole => "unspecified";

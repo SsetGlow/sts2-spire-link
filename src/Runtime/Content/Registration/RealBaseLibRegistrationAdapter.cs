@@ -1,17 +1,32 @@
-using System;
+using BaseLib.Patches.Content;
 
 namespace SpireLink.Runtime.Content.Registration;
 
 /// <summary>
-/// Candidate real adapter shell.
-/// It intentionally throws until verified against the actual local StS2/BaseLib runtime API.
+/// Real adapter implementation based on BaseLib content registration entry points found in source:
+/// - cards/relics via CustomContentDictionary.AddModel(type) with PoolAttribute
+/// - events via CustomContentDictionary.AddEvent(CustomEventModel)
 /// </summary>
 public sealed class RealBaseLibRegistrationAdapter : IBaseLibRegistrationAdapter
 {
-    private static InvalidOperationException Unverified(string itemType, RegistrationItem item) =>
-        new($"Real BaseLib registration for {itemType} '{item.Id}' is not verified in the current host. Run inside a validated StS2/BaseLib runtime first.");
+    public void RegisterCard(RegistrationItem item)
+    {
+        CustomContentDictionary.AddModel(item.RuntimeType);
+    }
 
-    public void RegisterCard(RegistrationItem item) => throw Unverified("card", item);
-    public void RegisterRelic(RegistrationItem item) => throw Unverified("relic", item);
-    public void RegisterEvent(RegistrationItem item) => throw Unverified("event", item);
+    public void RegisterRelic(RegistrationItem item)
+    {
+        CustomContentDictionary.AddModel(item.RuntimeType);
+    }
+
+    public void RegisterEvent(RegistrationItem item)
+    {
+        if (item.RuntimeType == typeof(Events.AltarOfSyncEvent))
+        {
+            CustomContentDictionary.AddEvent(new Events.AltarOfSyncEvent(false));
+            return;
+        }
+
+        throw new System.InvalidOperationException($"Unsupported event runtime type for real registration: {item.RuntimeType.FullName}");
+    }
 }

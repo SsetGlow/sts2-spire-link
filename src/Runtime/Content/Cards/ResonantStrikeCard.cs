@@ -1,8 +1,11 @@
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using SpireLink.Runtime.Content.Pools;
 using SpireLink.Runtime.Systems;
 
 namespace SpireLink.Runtime.Content.Cards;
 
+[Pool(typeof(SpireLinkSharedCardPool))]
 public sealed class ResonantStrikeCard() : SpireLinkCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.Enemy), ISpireLinkBehaviorProvider
 {
     public string BehaviorId => "RESONANT_STRIKE";
