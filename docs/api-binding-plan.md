@@ -26,4 +26,5 @@
 ## 当前状态
 - 已形成 `ApiBindingPlan`
 - 已形成 `ApiBindingProbeResult`
-- 已被纳入 registration snapshot
+- 已纳入 binding diagnostics
+- 已新增 `RealBaseLibRegistrationAdapter` 候选骨架（未验证，不可直接宣称已打通）

@@ -52,4 +52,14 @@ public static class BaseLibRegistrationFacade
         var effectiveAdapter = adapter ?? new DryRunBaseLibRegistrationAdapter();
         return BaseLibRegistrationExecutor.Execute(plan, effectiveAdapter);
     }
+
+    public static RegistrationExecutionReport RegisterAllContent(RegistrationExecutionMode mode)
+    {
+        return mode switch
+        {
+            RegistrationExecutionMode.DryRun => RegisterAllContent(new DryRunBaseLibRegistrationAdapter()),
+            RegistrationExecutionMode.RealCandidate => RegisterAllContent(new RealBaseLibRegistrationAdapter()),
+            _ => RegisterAllContent(new DryRunBaseLibRegistrationAdapter())
+        };
+    }
 }

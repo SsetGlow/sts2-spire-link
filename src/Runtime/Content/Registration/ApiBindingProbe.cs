@@ -6,6 +6,8 @@ public static class ApiBindingProbe
 {
     public static ApiBindingProbeResult ProbeCurrentEnvironment()
     {
+        var plan = ApiBindingPlanBuilder.Build();
+        var diagnostics = ReflectionBindingHelper.Probe(plan);
         var missing = new List<string>
         {
             "StS2 runtime assemblies not validated in current host",
@@ -16,7 +18,8 @@ public static class ApiBindingProbe
         return new ApiBindingProbeResult(
             EnvironmentReady: false,
             MissingCapabilities: missing,
-            Plan: ApiBindingPlanBuilder.Build()
+            Plan: plan,
+            Diagnostics: diagnostics
         );
     }
 }
