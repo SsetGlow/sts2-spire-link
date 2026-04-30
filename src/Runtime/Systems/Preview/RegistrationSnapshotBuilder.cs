@@ -10,11 +10,13 @@ public static class RegistrationSnapshotBuilder
     {
         SpireLinkRuntimeRegistry.Rebuild();
         IReadOnlyList<string> lines = RegistrationPreviewReporter.BuildPreviewLines();
+        var baseLibSnapshot = BaseLibRegistrationFacade.BuildSnapshot();
         return new RegistrationSnapshot(
             SpireLinkRuntimeRegistry.Cards.Count,
             SpireLinkRuntimeRegistry.Relics.Count,
             SpireLinkRuntimeRegistry.Events.Count,
-            lines
+            lines,
+            baseLibSnapshot
         );
     }
 }
