@@ -7,6 +7,8 @@ namespace SpireLink.Runtime;
 public static class SpireLinkContentBootstrap
 {
     private static bool _registered;
+    public static RegistrationExecutionReport? LastRegistrationReport { get; private set; }
+
     public static void RegisterAll()
     {
         if (_registered) return;
@@ -14,7 +16,7 @@ public static class SpireLinkContentBootstrap
         ResonanceCardRegistry.Register();
         ResonanceRelicRegistry.Register();
         ResonanceEventRegistry.Register();
-        SpireLinkRegistrationBridge.RegisterIntoBaseLib();
+        LastRegistrationReport = SpireLinkRegistrationBridge.RegisterIntoBaseLib();
         SpireLinkLifecycleCoordinator.Initialize();
     }
 }

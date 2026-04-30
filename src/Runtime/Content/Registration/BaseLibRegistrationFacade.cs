@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using SpireLink.Runtime.Content.Cards;
 using SpireLink.Runtime.Content.Events;
 using SpireLink.Runtime.Content.Relics;
@@ -7,7 +6,7 @@ namespace SpireLink.Runtime.Content.Registration;
 
 /// <summary>
 /// Central place for wiring Spire Link content into the eventual BaseLib/StS2 registration flow.
-/// Current stage: concrete registration inventory + sequencing shell.
+/// Current stage: concrete registration inventory + sequencing shell + dry-run executor.
 /// </summary>
 public static class BaseLibRegistrationFacade
 {
@@ -40,23 +39,15 @@ public static class BaseLibRegistrationFacade
     public static BaseLibRegistrationSnapshot BuildSnapshot()
     {
         var plan = BuildPlan();
-        var steps = new List<string>();
-        steps.Add($"Register cards: {plan.Cards.Count}");
-        steps.Add($"Register relics: {plan.Relics.Count}");
-        steps.Add($"Register events: {plan.Events.Count}");
-        foreach (var card in plan.Cards) steps.Add($"CARD {card.Id} role={card.DesignRole} type={card.RuntimeType.Name}");
-        foreach (var relic in plan.Relics) steps.Add($"RELIC {relic.Id} role={relic.DesignRole} type={relic.RuntimeType.Name}");
-        foreach (var ev in plan.Events) steps.Add($"EVENT {ev.Id} role={ev.DesignRole} type={ev.RuntimeType.Name}");
-        return new BaseLibRegistrationSnapshot(plan.Cards.Count, plan.Relics.Count, plan.Events.Count, steps);
+        var dryRunAdapter = new DryRunBaseLibRegistrationAdapter();
+        var report = BaseLibRegistrationExecutor.Execute(plan, dryRunAdapter);
+        return new BaseLibRegistrationSnapshot(report.CardCount, report.RelicCount, report.EventCount, dryRunAdapter.Steps);
     }
 
-    public static void RegisterAllContent()
+    public static RegistrationExecutionReport RegisterAllContent(IBaseLibRegistrationAdapter? adapter = null)
     {
-        var snapshot = BuildSnapshot();
-        _ = snapshot.CardCount;
-        _ = snapshot.RelicCount;
-        _ = snapshot.EventCount;
-        // TODO: replace inventory-only shell with actual BaseLib pool/event registration calls
-        // once the exact game-side API surface is available in the local environment.
+        var plan = BuildPlan();
+        var effectiveAdapter = adapter ?? new DryRunBaseLibRegistrationAdapter();
+        return BaseLibRegistrationExecutor.Execute(plan, effectiveAdapter);
     }
 }

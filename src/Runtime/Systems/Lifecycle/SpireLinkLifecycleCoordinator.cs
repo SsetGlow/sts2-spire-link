@@ -8,6 +8,7 @@ public static class SpireLinkLifecycleCoordinator
 {
     public static bool Initialized { get; private set; }
     public static RegistrationSnapshot? LastSnapshot { get; private set; }
+    public static RegistrationExecutionReport? LastRegistrationExecution { get; private set; }
 
     public static void Initialize()
     {
@@ -15,6 +16,7 @@ public static class SpireLinkLifecycleCoordinator
         Initialized = true;
         SpireLinkRuntimeRegistry.Rebuild();
         LastSnapshot = RegistrationSnapshotBuilder.Build();
+        LastRegistrationExecution = SpireLinkContentBootstrap.LastRegistrationReport;
     }
 
     public static void ResetBattle() => SpireLinkRuntimeState.EndBattle();

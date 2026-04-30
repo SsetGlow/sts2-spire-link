@@ -23,8 +23,8 @@ public static class SpireLinkRegistrationBridge
         new AltarOfSyncEvent()
     };
 
-    public static void RegisterIntoBaseLib()
+    public static RegistrationExecutionReport RegisterIntoBaseLib(IBaseLibRegistrationAdapter? adapter = null)
     {
-        BaseLibRegistrationFacade.RegisterAllContent();
+        return BaseLibRegistrationFacade.RegisterAllContent(adapter);
     }
 }
