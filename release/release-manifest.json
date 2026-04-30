@@ -1,0 +1,17 @@
+{
+  "packageName": "SpireLink",
+  "version": "0.1.0",
+  "packageShape": {
+    "modsRootChildren": [
+      "SpireLink",
+      "BaseLib(optional if user already has it)"
+    ],
+    "spireLinkRequiredFiles": [
+      "SpireLink.dll",
+      "SpireLink.pck",
+      "SpireLink.json"
+    ]
+  },
+  "playerInstallRule": "Extract the SpireLink folder into the game mods directory.",
+  "dependency": "BaseLib"
+}

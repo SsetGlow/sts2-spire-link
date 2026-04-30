@@ -36,6 +36,7 @@
 - manifest 正确
 - 打包脚本就绪
 - Workshop 发布说明就绪
+- 玩家包 release 目录模板就绪
 
 但 **还不能在这台机器上产出最终二进制成品**，除非补齐：
 - Slay the Spire 2
