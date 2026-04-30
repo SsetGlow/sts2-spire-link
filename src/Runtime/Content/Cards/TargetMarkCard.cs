@@ -6,6 +6,9 @@ namespace SpireLink.Runtime.Content.Cards;
 public sealed class TargetMarkCard() : SpireLinkCard(1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies), ISpireLinkBehaviorProvider
 {
     public string BehaviorId => "TARGET_MARK";
+    public override string LocalizationKey => BehaviorId;
+    public override string[] Keywords => ["LINK"];
+    public override string DesignRole => "setup-debuff";
     public CardBehaviorSpec? CardBehavior => SpireLinkBehaviorLibrary.Cards[BehaviorId];
     public RelicBehaviorSpec? RelicBehavior => null;
     public EventBehaviorSpec? EventBehavior => null;

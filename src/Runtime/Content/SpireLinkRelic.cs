@@ -6,6 +6,9 @@ namespace SpireLink.Runtime.Content;
 
 public abstract class SpireLinkRelic : CustomRelicModel
 {
+    public abstract string LocalizationKey { get; }
+    public virtual string DesignRole => "unspecified";
+
     public override string PackedIconPath
     {
         get

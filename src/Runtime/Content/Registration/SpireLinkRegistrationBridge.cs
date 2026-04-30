@@ -22,4 +22,9 @@ public static class SpireLinkRegistrationBridge
         new CommandCoreRelic(),
         new AltarOfSyncEvent()
     };
+
+    public static void RegisterIntoBaseLib()
+    {
+        BaseLibRegistrationFacade.RegisterAllContent();
+    }
 }

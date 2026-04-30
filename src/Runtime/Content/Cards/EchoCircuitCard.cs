@@ -6,6 +6,9 @@ namespace SpireLink.Runtime.Content.Cards;
 public sealed class EchoCircuitCard() : SpireLinkCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ISpireLinkBehaviorProvider
 {
     public string BehaviorId => "ECHO_CIRCUIT";
+    public override string LocalizationKey => BehaviorId;
+    public override string[] Keywords => ["RESONATE"];
+    public override string DesignRole => "mid-payoff";
     public CardBehaviorSpec? CardBehavior => SpireLinkBehaviorLibrary.Cards[BehaviorId];
     public RelicBehaviorSpec? RelicBehavior => null;
     public EventBehaviorSpec? EventBehavior => null;

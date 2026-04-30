@@ -6,6 +6,9 @@ namespace SpireLink.Runtime.Content.Cards;
 public sealed class ChainRepairCard() : SpireLinkCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Ally), ISpireLinkBehaviorProvider
 {
     public string BehaviorId => "CHAIN_REPAIR";
+    public override string LocalizationKey => BehaviorId;
+    public override string[] Keywords => ["LINK", "GUARD_LINK"];
+    public override string DesignRole => "rescue-support";
     public CardBehaviorSpec? CardBehavior => SpireLinkBehaviorLibrary.Cards[BehaviorId];
     public RelicBehaviorSpec? RelicBehavior => null;
     public EventBehaviorSpec? EventBehavior => null;
