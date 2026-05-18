@@ -13,6 +13,8 @@
 - 已新增 `IBaseLibRegistrationAdapter / BaseLibRegistrationExecutor / DryRunBaseLibRegistrationAdapter`
 - 已能形成一条完整的 **plan -> adapter -> execution report** dry-run 链路
 - 已新增 `ApiBindingPlan / ApiBindingProbe`，把最终真实 API 绑定目标也结构化收口
+- 默认 bootstrap 现在走 `RegistrationExecutionMode.RealCandidate`，会调用 `CustomContentDictionary.AddModel(...)` / `AddEvent(...)` 注册内容
+- dry-run 仍保留给 snapshot、诊断和无游戏运行时环境下的预览
 
 ## 还没完成
 
@@ -24,7 +26,7 @@
 - **把真实注册入口与结构全部铺好**
 - **把注册序列压成可检查的 plan / snapshot / execution report**
 - **把未来真实 BaseLib 绑定点也压成 binding plan / probe**
-- **但还没验证最终的 BaseLib 实际 API 调用细节**
+- **真实注册适配器已按当前 BaseLib 公开源码接入，但仍需要在装有 StS2 + BaseLib 的机器上做最终启动验证**
 
 ## 当前结论
 

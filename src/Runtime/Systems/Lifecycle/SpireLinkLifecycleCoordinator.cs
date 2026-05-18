@@ -21,4 +21,5 @@ public static class SpireLinkLifecycleCoordinator
 
     public static void ResetBattle() => SpireLinkRuntimeState.EndBattle();
     public static void StartBattle() => SpireLinkRuntimeState.StartBattle();
+    public static void StartBattle(params string[] playerIds) => SpireLinkRuntimeState.StartBattle(playerIds);
 }

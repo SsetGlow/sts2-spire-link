@@ -9,6 +9,12 @@ public static class SpireLinkRuntimeState
         CurrentBattle = new BattleCoordinationState();
     }
 
+    public static void StartBattle(params string[] playerIds)
+    {
+        CurrentBattle = new BattleCoordinationState();
+        CurrentBattle.ConfigurePlayers(playerIds);
+    }
+
     public static void EndBattle()
     {
         CurrentBattle.ResetBattle();

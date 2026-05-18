@@ -16,7 +16,7 @@ public static class SpireLinkContentBootstrap
         ResonanceCardRegistry.Register();
         ResonanceRelicRegistry.Register();
         ResonanceEventRegistry.Register();
-        LastRegistrationReport = SpireLinkRegistrationBridge.RegisterIntoBaseLib();
+        LastRegistrationReport = BaseLibRegistrationFacade.RegisterAllContent(RegistrationExecutionMode.RealCandidate);
         SpireLinkLifecycleCoordinator.Initialize();
     }
 }

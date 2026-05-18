@@ -38,6 +38,45 @@ BaseLib/
 <Slay the Spire 2>/SlayTheSpire2.app/Contents/MacOS/mods/
 ```
 
+BaseLib 也必须存在于同一个 `mods/` 目录下：
+
+```text
+mods/
+  BaseLib/
+    BaseLib.dll
+    BaseLib.pck
+    BaseLib.json
+  SpireLink/
+    SpireLink.dll
+    SpireLink.pck
+    SpireLink.json
+```
+
+首次启动带 mod 的游戏时，确认游戏弹出的 modded mode 提示；之后可在 Settings -> Mod Settings 里确认 `SpireLink` 已加载。
+
+## 作者本地构建步骤
+
+需要先安装：
+
+- Slay the Spire 2
+- .NET SDK 9
+- Godot/MegaDot 4.5.1 Mono
+- BaseLib，放入游戏 `mods/BaseLib/`
+
+然后在仓库根目录执行：
+
+```bash
+./tools/build_release.sh
+```
+
+如果游戏或 Godot 不在默认位置，用 MSBuild 属性覆盖路径：
+
+```bash
+dotnet publish SpireLink.csproj -c Release \
+  -p:SteamLibraryPath="/path/to/Steam/steamapps" \
+  -p:GodotPath="/path/to/Godot"
+```
+
 ## 玩家不应该做的事
 
 - 不应该自己编译

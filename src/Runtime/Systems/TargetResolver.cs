@@ -9,12 +9,12 @@ public static class TargetResolver
             null => context.SourcePlayerId,
             "self" => context.SourcePlayerId,
             "enemy" => context.ExplicitTargetId ?? "enemy",
-            "teammate" => context.ExplicitTargetId ?? "next_teammate",
-            "next_teammate" => "next_teammate",
-            "fallback_teammate" => context.ExplicitTargetId ?? "next_teammate",
-            "teammate_or_block_fallback" => context.ExplicitTargetId ?? "next_teammate",
+            "teammate" => context.ExplicitTargetId ?? context.BattleState.ResolveNextTeammate(context.SourcePlayerId),
+            "next_teammate" => context.BattleState.ResolveNextTeammate(context.SourcePlayerId),
+            "fallback_teammate" => context.ExplicitTargetId ?? context.BattleState.ResolveNextTeammate(context.SourcePlayerId),
+            "teammate_or_block_fallback" => context.ExplicitTargetId ?? context.BattleState.ResolveNextTeammate(context.SourcePlayerId),
             "spender" => context.SourcePlayerId,
-            "random_teammate" => "random_teammate",
+            "random_teammate" => context.BattleState.ResolveNextTeammate(context.SourcePlayerId),
             _ => target
         };
     }
